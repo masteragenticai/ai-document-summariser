@@ -186,3 +186,44 @@ with col2:
                     crew = DocumentSummariserCrew(st.session_state.api_key, model_provider)
 
                     # Optional validation of crew
+                    if not hasattr(crew, "summarise_document"):
+                        raise Exception("Failed to initialise summariser. Check API key or provider.")
+
+                    status_text.text("Document Analyst reviewing content...")
+                    progress_bar.progress(50)
+
+                    summary = crew.summarise_document(document_text)
+
+                    status_text.text("Summary Writer creating executive summary...")
+                    progress_bar.progress(80)
+                    time.sleep(1)
+
+                    progress_bar.progress(100)
+                    status_text.text("✅ Summary complete!")
+                    time.sleep(0.5)
+
+                    progress_bar.empty()
+                    status_text.empty()
+
+                st.success("✨ Summary generated successfully!")
+                st.markdown(summary)
+
+                st.download_button(
+                    label="📥 Download Summary",
+                    data=summary,
+                    file_name="executive_summary.txt",
+                    mime="text/plain"
+                )
+
+            except Exception as e:
+                st.error(f"❌ An error occurred: {str(e)}")
+                st.info("💡 Common issues: Invalid API key, rate limits, or network problems")
+
+# Footer
+st.divider()
+st.markdown("""
+<div style='text-align: center; color: #666; font-size: 14px;'>
+    <p>Built with CrewAI and Streamlit | AI Solutions Course - MasterAgenticAI.Academy</p>
+    <p>Remember: This tool enhances human analysis, it doesn't replace it!</p>
+</div>
+""", unsafe_allow_html=True)
