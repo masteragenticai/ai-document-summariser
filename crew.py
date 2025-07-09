@@ -3,6 +3,7 @@ CrewAI Implementation for Document Summariser
 Month 1 Mini Project - AI Solutions Course | MasterAgenticAI.Academy
 """
 
+import os
 import yaml
 from crewai import Agent, Task, Crew, Process
 from langchain.chat_models import ChatAnthropic, ChatOpenAI
@@ -24,16 +25,16 @@ class DocumentSummariserCrew:
         with open('config.yaml', 'r') as file:
             self.config = yaml.safe_load(file)
         
-        # Initialise the language model
+       # Set API key as environment variable (required by older LangChain versions)
         if model_provider == "anthropic":
+            os.environ["ANTHROPIC_API_KEY"] = api_key  # Set as environment variable
             self.llm = ChatAnthropic(
-                anthropic_api_key=api_key,
-                model="claude-3-sonnet-20240229"
+                model="claude-3-sonnet-20240229"  # No API key parameter
             )
-        else: #openai
+        else:  # openai
+            os.environ["OPENAI_API_KEY"] = api_key  # Set as environment variable
             self.llm = ChatOpenAI(
-                openai_api_key=api_key,
-                model="gpt-4-turbo-preview"
+                model="gpt-4-turbo-preview"  # No API key parameter
             )
         
         
