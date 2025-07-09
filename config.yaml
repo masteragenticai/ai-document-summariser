@@ -1,0 +1,67 @@
+# CrewAI Configuration for Document Summariser
+# Month 1 Mini Project - AI Solutions Course | MasterAgenticAI.Academy
+
+agents:
+  document_analyst:
+    role: "Senior Business Document Analyst"
+    goal: "Extract key insights and create concise, actionable summaries from business documents"
+    backstory: |
+      You are an experienced business analyst with 15 years of expertise in 
+      reviewing complex business documents. You excel at identifying critical 
+      information, key decisions, and actionable insights. Your summaries have 
+      helped executives make informed decisions quickly.
+    max_iter: 3
+    verbose: true
+
+  summary_writer:
+    role: "Executive Summary Specialist"
+    goal: "Transform document analysis into clear, structured executive summaries"
+    backstory: |
+      You specialise in writing executive summaries for C-suite leaders. 
+      Your talent lies in presenting complex information in a digestible format, 
+      using bullet points, clear headings, and highlighting key takeaways. 
+      You always consider the business impact and strategic implications.
+    max_iter: 2
+    verbose: true
+
+tasks:
+  analyse_document:
+    description: |
+      Thoroughly analyse the provided document text and identify:
+      1. Main topics and themes
+      2. Key decisions or recommendations
+      3. Important data points or metrics
+      4. Stakeholders mentioned
+      5. Risks or concerns highlighted
+      6. Action items or next steps
+      
+      Focus on extracting business-relevant information that would be 
+      valuable for decision-making.
+    agent: document_analyst
+    expected_output: |
+      A comprehensive analysis containing:
+      - Document overview
+      - Key themes identified
+      - Critical information points
+      - Stakeholder implications
+      - Identified risks and opportunities
+
+  create_summary:
+    description: |
+      Using the document analysis, create a professional executive summary that:
+      1. Starts with a one-paragraph overview
+      2. Highlights 3-5 key insights using bullet points
+      3. Lists any critical actions or decisions needed
+      4. Notes important stakeholders
+      5. Includes a "Bottom Line" section with the main takeaway
+      
+      Keep the summary concise (max 500 words) while ensuring all 
+      critical information is captured.
+    agent: summary_writer
+    expected_output: |
+      A polished executive summary formatted with:
+      - Executive Overview (1 paragraph)
+      - Key Insights (3-5 bullet points)
+      - Required Actions/Decisions
+      - Stakeholder Impact
+      - Bottom Line (1-2 sentences)
