@@ -1,21 +1,9 @@
 # AI Solutions Course - Month 1 Document Summariser
-# Tested and working in GitHub Codespaces
+# Additional dependencies not installed by setup.sh
 
-# Core Framework
-streamlit==1.40.1
-crewai==0.1.7
-
-# AI Provider
-openai==0.28.1
-
-# LangChain ecosystem - specific compatible versions
-langchain==0.0.351
-langchain-community==0.0.38
-langchain-core==0.1.52
-
-# Data Processing
+# Data Processing (these get installed automatically with other packages,
+# but we list them to ensure specific versions)
 pydantic==2.11.7
-python-dotenv==1.0.1
 tiktoken==0.5.2
 
 # Basic utilities
