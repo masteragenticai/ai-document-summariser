@@ -1,6 +1,23 @@
-streamlit==1.29.0
-crewai==0.11.0
-anthropic==0.25.0
-openai==1.12.0
-langchain==0.1.0
-pydantic==2.5.0
+# AI Solutions Course - Month 1 Document Summariser
+# Tested and working in GitHub Codespaces
+
+# Core Framework
+streamlit==1.40.1
+crewai==0.1.7
+
+# AI Provider
+openai==0.28.1
+
+# LangChain ecosystem - specific compatible versions
+langchain==0.0.351
+langchain-community==0.0.38
+langchain-core==0.1.52
+
+# Data Processing
+pydantic==2.11.7
+python-dotenv==1.0.1
+tiktoken==0.5.2
+
+# Basic utilities
+pandas==2.3.1
+PyYAML==6.0.2
