@@ -4,7 +4,7 @@
 # Data Processing (these get installed automatically with other packages,
 # but we list them to ensure specific versions)
 pydantic==2.11.7
-tiktoken==0.5.2
+
 
 # Basic utilities
 pandas==2.3.1
